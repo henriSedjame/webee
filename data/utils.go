@@ -6,6 +6,6 @@ import (
 )
 
 //LoadDB loads datasource stored into the context
-func LoadDB[T](ctx context.Context) T {
+func LoadDB[T any](ctx context.Context) T {
 	return ctx.Value(utils.DBCtxKey).(T)
 }
