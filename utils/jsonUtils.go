@@ -10,5 +10,5 @@ func ToJson[T any](t T, writer io.Writer) error {
 }
 
 func FromJson[T any](t T, reader io.Reader) error {
-	return json.NewDecoder(reader).Decode(&t)
+	return json.NewDecoder(reader).Decode(t)
 }
