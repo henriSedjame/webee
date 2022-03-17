@@ -12,6 +12,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"reflect"
 	"strings"
 	"time"
 )
@@ -127,7 +128,11 @@ func (app *App) configureWebServer() {
 						}
 					}
 
-					handler = web.PostPutMethodHandler(model, key, eh)(endpoint.Handler())
+					request := reflect.
+						New(reflect.TypeOf(model)).
+						Interface().(web.Request)
+
+					handler = web.PostPutMethodHandler(request, key, eh)(endpoint.Handler())
 				}
 			} else {
 				handler = endpoint.Handler()

@@ -31,7 +31,6 @@ func PostPutMethodHandler[T Request](defaultModel T, modelKey interface{}, error
 
 			next.ServeHTTP(wr, rq)
 
-			return
 		})
 	}
 }
