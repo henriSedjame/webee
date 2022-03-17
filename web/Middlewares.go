@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-func PostPutMethodHandler(defaultModel Request, modelKey interface{}, errorHandler ErrorHandler) func(handler http.Handler) http.Handler {
+func PostPutMethodHandler[T Request](defaultModel T, modelKey interface{}, errorHandler ErrorHandler) func(handler http.Handler) http.Handler {
 	return func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(wr http.ResponseWriter, rq *http.Request) {
 
